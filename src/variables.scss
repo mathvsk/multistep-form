@@ -1,23 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Titillium+Web:wght@700&display=swap');
+
 $purple-mid: #633BBC;
 $purple-light: #8257E5;
+
 $white: #FFFFFF;
+
 $gray-100: #E1E1E6;
 $gray-200: #8D8D99;
 $gray-300: #7C7C8A;
 $gray-400: #323238;
+
 $sucess-color: #1D8841;
 
+$font-family: 'IBM Plex Sans', sans-serif;
+$font-family-secundary: 'Titillium Web', sans-serif;
+$line-height: 150%;
+$font-size-md: 1.6rem;
+$font-size-sm: 1.4rem;
 
-@mixin text-regular {
-    font-size: 1.6rem;
-    line-height: 150%;
-    font-weight: regular;
-    color: $gray-200;
-}
+@mixin font-default($weight: regular) {
+    font-size: $font-size-md;
+    line-height: $line-height;
+    font-family: $font-family;
+    font-weight: $weight;
 
-@mixin text-bold {
-    font-size: 1.6rem;
-    line-height: 150%;
-    font-weight: bold;
-    color: $gray-400;
+    @if $weight == bold {
+        color: $gray-400;
+    }
+
+    @else {
+        color: $gray-200;
+    }
 }
