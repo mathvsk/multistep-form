@@ -1,0 +1,20 @@
+@for (step of stepList(); track $index) {
+    <div 
+        class="step" 
+        [class.active]="$index === currentStep()" 
+        [class.completed]="$index < currentStep()"
+    >
+        <div class="step-number">
+            @if ($index < currentStep()) {
+                <img src="/check.svg" />
+            } @else {
+                {{ $index + 1 }}
+            }
+        </div>
+        <div class="step-label">{{ step }}</div>
+    </div>
+
+    @if ($index < stepList().length - 1) {
+        <img src="/arrow.svg" />
+    }
+}

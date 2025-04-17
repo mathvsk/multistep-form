@@ -1,0 +1,53 @@
+@use '../../../variables' as *;
+
+
+@mixin step-state($bg-color) {
+    .step-number {
+        color: $white;
+        background-color: $bg-color;
+    }
+
+    .step-label {
+        color: $gray-400;
+    }
+}
+
+:host {
+    display: flex;
+    justify-content: space-between;
+
+    .step {
+        display: flex;
+        align-items: center;
+        gap: .8rem;
+        
+        padding: .8rem;
+
+        &.active {
+            @include step-state($purple-mid);
+        }
+
+        &.completed {
+            @include step-state($sucess-color);
+        }
+    }
+
+    .step-number {
+        font-size: 1.4rem;
+        font-family: $font-family-secundary;
+
+        border-radius: 50%;
+        width: 2.8rem;
+        height: 2.8rem;
+
+        display: grid;
+        place-items: center;
+
+        background-color: $gray-100;
+    }
+
+    .step-label,
+    .step-number {
+        color: $gray-200;
+    }
+}
