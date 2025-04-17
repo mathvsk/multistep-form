@@ -1,0 +1,18 @@
+@use '../variables.scss' as *;
+
+:host {
+    height: 100vh;
+
+    display: grid;
+    place-items: center;
+
+    div {
+        width: 59.2rem;
+        height: 54.5rem;
+
+        border: 1px solid $gray-100;
+        border-radius: 6px;
+
+        padding: 3.2rem;
+    }
+}
