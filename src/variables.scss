@@ -1,0 +1,23 @@
+$purple-mid: #633BBC;
+$purple-light: #8257E5;
+$white: #FFFFFF;
+$gray-100: #E1E1E6;
+$gray-200: #8D8D99;
+$gray-300: #7C7C8A;
+$gray-400: #323238;
+$sucess-color: #1D8841;
+
+
+@mixin text-regular {
+    font-size: 1.6rem;
+    line-height: 150%;
+    font-weight: regular;
+    color: $gray-200;
+}
+
+@mixin text-bold {
+    font-size: 1.6rem;
+    line-height: 150%;
+    font-weight: bold;
+    color: $gray-400;
+}
