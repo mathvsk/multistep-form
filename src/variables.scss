@@ -18,7 +18,7 @@ $line-height: 150%;
 $font-size-md: 1.6rem;
 $font-size-sm: 1.4rem;
 
-@mixin font-default($weight: regular) {
+@mixin font-default($weight: normal) {
     font-size: $font-size-md;
     line-height: $line-height;
     font-family: $font-family;

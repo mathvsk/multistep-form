@@ -1,0 +1,5 @@
+<label [for]="title()">{{ title() }}</label>
+<ng-content select="input, textarea" />
+@if (showError()) {
+    <p>Campo obrigatório</p>
+}

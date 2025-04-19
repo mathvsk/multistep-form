@@ -1,0 +1,37 @@
+@use '../../../variables.scss' as *;
+
+@mixin input-style($type: 'text') {
+    @include font-default();
+    color: $gray-400;
+
+    border: 1px solid $gray-100;
+    padding: .8rem 1.6rem;
+    border-radius: 2px;
+
+    @if $type == 'text' {
+        height: 5.4rem;
+    } @else if $type == 'textarea' {
+        height: 10rem;
+    }
+
+    &::placeholder {
+        color: $gray-200;
+    }
+
+    &:focus {
+        outline: 1px solid $purple-mid;
+    }
+}
+
+.input-component {
+    display: grid;
+    row-gap: .4rem;
+
+    input {
+        @include input-style();
+    }
+
+    textarea {
+        @include input-style('textarea');
+    }
+}
