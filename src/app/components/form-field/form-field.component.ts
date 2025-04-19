@@ -12,5 +12,4 @@ import { Component, input, ViewEncapsulation } from '@angular/core';
 })
 export class FormFieldComponent {
   title = input.required<string>();
-  showError = input(false);
 }

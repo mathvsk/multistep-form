@@ -1,1 +1,47 @@
-<p>multistep-form works!</p>
+<app-steps [currentStep]="currentStep()"/>
+
+<div class="divider"></div>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    @if (currentStep() === 0) {
+        <app-form-field title="Nome">
+            <input 
+                formControlName="name" 
+                type="text" 
+                placeholder="Como prefere ser chamado" 
+            />
+
+            @if (name.invalid && (name.touched || name.dirty)) {
+                <span class="error"> {{getErrorMessage('name')}} </span>
+            }
+        </app-form-field>
+    
+        <app-form-field title="Telefone">
+            <input
+                formControlName="phone"
+                type="tel"
+                placeholder="Digite seu número de WhatsApp com DDD" 
+            />
+
+            @if (phone.invalid && (phone.touched || phone.dirty)) {
+                <span class="error"> {{ getErrorMessage('phone') }} </span>
+            }
+        </app-form-field>
+
+        <app-form-field title="E-mail">
+            <input
+                formControlName="email"
+                type="email"
+                placeholder="Digite seu e-mail" 
+            />
+
+            @if (email.invalid && (email.touched || email.dirty)) {
+                <span class="error"> {{ getErrorMessage('email') }} </span>
+            }
+        </app-form-field>
+    } @else if (currentStep() === 1) {
+        <!-- TODO -->
+    } @else if (currentStep() === 2) {
+        <!-- TODO -->
+    }
+</form>
