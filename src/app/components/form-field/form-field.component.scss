@@ -34,4 +34,10 @@
     textarea {
         @include input-style('textarea');
     }
+
+    .error {
+        color: $error-color;
+        font-size: 1.4rem;
+        margin-top: .4rem;
+    }
 }
