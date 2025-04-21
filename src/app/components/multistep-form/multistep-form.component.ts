@@ -24,6 +24,7 @@ type FieldName = keyof typeof fieldLabels;
 })
 export class MultistepFormComponent {
   currentStep = 0;
+  isSubmitting = false;
 
   form = new FormGroup({
     name: new FormControl('', {
@@ -114,6 +115,14 @@ export class MultistepFormComponent {
   }
 
   onSubmit() {
-    throw new Error('Method not implemented.');
+    this.isSubmitting = true;
+    
+    setTimeout(() => {
+      this.isSubmitting = false;
+      console.log(this.form.value);
+      alert('Formulário enviado com sucesso!');
+      this.form.reset();
+      this.currentStep = 0;
+    }, 5000);
   }
 }

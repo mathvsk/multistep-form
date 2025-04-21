@@ -9,6 +9,7 @@ import { Component, input, model, output } from '@angular/core';
 export class StepsButtonComponent {
   currentStep = model(0);
   disabled = input(false);
+  isSubmitting = input(false);
 
   onClickBack() {
     this.currentStep.update((prev) => --prev);
