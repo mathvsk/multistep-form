@@ -36,6 +36,8 @@
 
     textarea {
         @include input-style('textarea');
+        
+        resize: none; 
     }
 
     .error {

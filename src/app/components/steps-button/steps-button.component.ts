@@ -1,4 +1,4 @@
-import { Component, input, model } from '@angular/core';
+import { Component, input, model, output } from '@angular/core';
 
 @Component({
   selector: 'app-steps-button',
@@ -11,10 +11,11 @@ export class StepsButtonComponent {
   disabled = input(false);
 
   onClickBack() {
-    this.currentStep.update((step) => step - 1);
+    this.currentStep.update((prev) => --prev);
   }
 
   onClickContinue() {
-    this.currentStep.update((step) => step + 1);
+    this.currentStep.update((prev) => ++prev);
+
   }
 }
