@@ -10,7 +10,8 @@ const fieldLabels = {
   email: 'e-mail',
   businessName: 'nome da empresa',
   numberOfEmployees: 'número de funcionários',
-  aboutYourBusiness: 'sobre seu negócio'
+  aboutYourBusiness: 'sobre seu negócio',
+  projectObjectives: 'objetivos do projeto'
 } as const;
 
 type FieldName = keyof typeof fieldLabels;
@@ -46,6 +47,9 @@ export class MultistepFormComponent {
     aboutYourBusiness: new FormControl('', {
       validators: [Validators.required],
     }),
+    projectObjectives: new FormControl('', {
+      validators: [Validators.required],
+    }),
   });
 
   get disabledButton() {
@@ -55,7 +59,7 @@ export class MultistepFormComponent {
     } else if (this.currentStep === 1) {
       ret = this.form.controls.businessName.invalid || this.form.controls.numberOfEmployees.invalid || this.form.controls.aboutYourBusiness.invalid;
     } else if (this.currentStep === 2) {
-      ret = false;
+      ret = this.projectObjectives.invalid;
     }
 
     return ret;
@@ -83,6 +87,10 @@ export class MultistepFormComponent {
 
   get aboutYourBusiness() {
     return this.form.controls.aboutYourBusiness;
+  }
+
+  get projectObjectives() {
+    return this.form.controls.projectObjectives;
   }
 
   getErrorMessage(controlName: FieldName): string {

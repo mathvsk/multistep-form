@@ -51,6 +51,7 @@
                 <span class="error"> {{ getErrorMessage('businessName') }} </span>
             }
         </app-form-field>
+
         <app-form-field title="Número de funcionários">
             <input
                 formControlName="numberOfEmployees"
@@ -62,6 +63,7 @@
                 <span class="error"> {{ getErrorMessage('numberOfEmployees') }} </span>
             }
         </app-form-field>
+
         <app-form-field title="Sobre seu negócio">
             <textarea formControlName="aboutYourBusiness" placeholder="Fale um pouco sobre seus produtos ou serviços"></textarea>
 
@@ -70,7 +72,13 @@
             }
         </app-form-field>
     } @else if (currentStep === 2) {
-        <!-- TODO -->
+        <app-form-field title="Objetivos do projeto">
+            <textarea formControlName="projectObjectives" placeholder="Descreva quais os objetivos desse projeto"></textarea>
+
+            @if (projectObjectives.invalid && (projectObjectives.touched || projectObjectives.dirty)) {
+                <span class="error"> {{ getErrorMessage('projectObjectives') }} </span>
+            }
+        </app-form-field>
     }
 
     <footer>
