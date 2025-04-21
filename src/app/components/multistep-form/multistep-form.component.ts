@@ -3,6 +3,7 @@ import { StepsComponent } from "../steps/steps.component";
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormFieldComponent } from "../form-field/form-field.component";
 import { StepsButtonComponent } from "../steps-button/steps-button.component";
+import { FormatPhoneDirective } from '../../shared/directives/format-phone.directive';
 
 const fieldLabels = {
   name: 'nome',
@@ -18,7 +19,7 @@ type FieldName = keyof typeof fieldLabels;
 
 @Component({
   selector: 'app-multistep-form',
-  imports: [StepsComponent, ReactiveFormsModule, FormFieldComponent, StepsButtonComponent],
+  imports: [StepsComponent, ReactiveFormsModule, FormFieldComponent, StepsButtonComponent, FormatPhoneDirective],
   templateUrl: './multistep-form.component.html',
   styleUrl: './multistep-form.component.scss'
 })
@@ -116,7 +117,7 @@ export class MultistepFormComponent {
 
   onSubmit() {
     this.isSubmitting = true;
-    
+
     setTimeout(() => {
       this.isSubmitting = false;
       console.log(this.form.value);

@@ -20,7 +20,8 @@
             <input
                 formControlName="phone"
                 type="tel"
-                placeholder="Digite seu número de WhatsApp com DDD" 
+                placeholder="Digite seu número de WhatsApp com DDD"
+                appFormatPhone
             />
 
             @if (phone.invalid && (phone.touched || phone.dirty)) {
