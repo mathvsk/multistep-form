@@ -40,7 +40,35 @@
             }
         </app-form-field>
     } @else if (currentStep === 1) {
-        <!-- TODO -->
+        <app-form-field title="Nome da empresa">
+            <input
+                formControlName="businessName"
+                type="text"
+                placeholder="Qual é o nome da empresa" 
+            />
+
+            @if (businessName.invalid && (businessName.touched || businessName.dirty)) {
+                <span class="error"> {{ getErrorMessage('businessName') }} </span>
+            }
+        </app-form-field>
+        <app-form-field title="Número de funcionários">
+            <input
+                formControlName="numberOfEmployees"
+                type="number"
+                placeholder="Digite o número de colaboradores" 
+            />
+
+            @if (numberOfEmployees.invalid && (numberOfEmployees.touched || numberOfEmployees.dirty)) {
+                <span class="error"> {{ getErrorMessage('numberOfEmployees') }} </span>
+            }
+        </app-form-field>
+        <app-form-field title="Sobre seu negócio">
+            <textarea formControlName="aboutYourBusiness" placeholder="Fale um pouco sobre seus produtos ou serviços"></textarea>
+
+            @if (aboutYourBusiness.invalid && (aboutYourBusiness.touched || aboutYourBusiness.dirty)) {
+                <span class="error"> {{ getErrorMessage('aboutYourBusiness') }} </span>
+            }
+        </app-form-field>
     } @else if (currentStep === 2) {
         <!-- TODO -->
     }

@@ -7,7 +7,10 @@ import { StepsButtonComponent } from "../steps-button/steps-button.component";
 const fieldLabels = {
   name: 'nome',
   phone: 'telefone',
-  email: 'e-mail'
+  email: 'e-mail',
+  businessName: 'nome da empresa',
+  numberOfEmployees: 'número de funcionários',
+  aboutYourBusiness: 'sobre seu negócio'
 } as const;
 
 type FieldName = keyof typeof fieldLabels;
@@ -34,6 +37,15 @@ export class MultistepFormComponent {
       validators: [Validators.required, Validators.email],
       updateOn: 'blur'
     }),
+    businessName: new FormControl('', {
+      validators: [Validators.required],
+    }),
+    numberOfEmployees: new FormControl('', {
+      validators: [Validators.required],
+    }),
+    aboutYourBusiness: new FormControl('', {
+      validators: [Validators.required],
+    }),
   });
 
   get disabledButton() {
@@ -41,7 +53,7 @@ export class MultistepFormComponent {
     if (this.currentStep === 0) {
       ret = this.form.controls.name.invalid || this.form.controls.phone.invalid || this.form.controls.email.invalid;
     } else if (this.currentStep === 1) {
-      ret = false;
+      ret = this.form.controls.businessName.invalid || this.form.controls.numberOfEmployees.invalid || this.form.controls.aboutYourBusiness.invalid;
     } else if (this.currentStep === 2) {
       ret = false;
     }
@@ -57,16 +69,27 @@ export class MultistepFormComponent {
     return this.form.controls.phone;
   }
 
-
   get email() {
     return this.form.controls.email;
+  }
+
+  get businessName() {
+    return this.form.controls.businessName;
+  }
+
+  get numberOfEmployees() {
+    return this.form.controls.numberOfEmployees;
+  }
+
+  get aboutYourBusiness() {
+    return this.form.controls.aboutYourBusiness;
   }
 
   getErrorMessage(controlName: FieldName): string {
     const formControl = this.form.controls[controlName];
     const fieldLabel = fieldLabels[controlName];
 
-    if (formControl.hasError('required')) return `O campo ${fieldLabel} é obrigatório`;
+    if (formControl.hasError('required')) return `O campo "${fieldLabel}" é obrigatório`;
 
     let ret = '';
     switch (controlName) {
