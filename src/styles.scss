@@ -1,6 +1,6 @@
 @use './reset.scss';
 @use './variables.scss' as *;
 
-body {
+body, button {
     @include font-default(bold);
 }

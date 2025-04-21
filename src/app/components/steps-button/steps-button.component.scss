@@ -1,9 +1,37 @@
+@use '../../../variables.scss' as *;
+
+@mixin button($bg-color, $color) {
+    text-transform: uppercase;
+    color: $color;
+    background-color: $bg-color;
+    padding: 1.6rem 3.2rem;
+    border-radius: 6px;
+
+    outline: none;
+}
+
 :host {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    text-transform: capitalize;
 
-    .continue {
+    .btn-back {
+        @include button($white, $purple-mid);
+
+        width: 15.8rem;
+        border: 1px solid $purple-mid;
+    }
+
+    .btn-continue,
+    button[type="submit"] {
+        @include button($purple-mid, $white);
+
         margin-left: auto;
+        transition: background-color 0.3s ease-in-out;
+
+        &:hover {
+            background-color: $purple-light;
+        }
     }
 }

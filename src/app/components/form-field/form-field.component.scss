@@ -8,6 +8,8 @@
     padding: .8rem 1.6rem;
     border-radius: 2px;
 
+    transition: box-shadow 0.3s ease-in-out; // Transição suave para o box-shadow, o outline não suporta
+
     @if $type == 'text' {
         height: 5.4rem;
     } @else if $type == 'textarea' {
@@ -19,7 +21,8 @@
     }
 
     &:focus {
-        outline: 1px solid $purple-mid;
+        outline: none; // Remove o outline padrão
+        box-shadow: 0 0 0 1px $purple-mid; // Simula o outline com box-shadow
     }
 }
 

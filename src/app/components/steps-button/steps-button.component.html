@@ -1,9 +1,9 @@
 @if (currentStep() > 0) {
-    <button type="button" (click)="onClickBack()">voltar</button>
+    <button type="button" class="btn-back" (click)="onClickBack()">voltar</button>
 } 
 
 @if (currentStep() < 2) {
-    <button type="button" class="continue" (click)="onClickContinue()">próximo</button>
+    <button type="button" class="btn-continue" (click)="onClickContinue()">continuar</button>
 } @else {
     <button type="submit">enviar proposta</button>
 }
