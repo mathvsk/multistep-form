@@ -1,9 +1,9 @@
-<app-steps [currentStep]="currentStep()"/>
+<app-steps [currentStep]="currentStep"/>
 
 <div class="divider"></div>
 
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    @if (currentStep() === 0) {
+    @if (currentStep === 0) {
         <app-form-field title="Nome">
             <input 
                 formControlName="name" 
@@ -39,9 +39,13 @@
                 <span class="error"> {{ getErrorMessage('email') }} </span>
             }
         </app-form-field>
-    } @else if (currentStep() === 1) {
+    } @else if (currentStep === 1) {
         <!-- TODO -->
-    } @else if (currentStep() === 2) {
+    } @else if (currentStep === 2) {
         <!-- TODO -->
     }
+
+    <footer>
+        <app-steps-button [(currentStep)]="currentStep" />
+    </footer>
 </form>

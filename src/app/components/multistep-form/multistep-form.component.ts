@@ -2,6 +2,7 @@ import { Component, signal } from '@angular/core';
 import { StepsComponent } from "../steps/steps.component";
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormFieldComponent } from "../form-field/form-field.component";
+import { StepsButtonComponent } from "../steps-button/steps-button.component";
 
 const fieldLabels = {
   name: 'nome',
@@ -13,12 +14,12 @@ type FieldName = keyof typeof fieldLabels;
 
 @Component({
   selector: 'app-multistep-form',
-  imports: [StepsComponent, ReactiveFormsModule, FormFieldComponent],
+  imports: [StepsComponent, ReactiveFormsModule, FormFieldComponent, StepsButtonComponent],
   templateUrl: './multistep-form.component.html',
   styleUrl: './multistep-form.component.scss'
 })
 export class MultistepFormComponent {
-  currentStep = signal(0);
+  currentStep = 0;
 
   form = new FormGroup({
     name: new FormControl('', {
@@ -52,7 +53,7 @@ export class MultistepFormComponent {
     const formControl = this.form.controls[controlName];
     const fieldLabel = fieldLabels[controlName];
 
-    if (formControl.hasError('required')) return `O campo ${fieldLabel} obrigatório`;
+    if (formControl.hasError('required')) return `O campo ${fieldLabel} é obrigatório`;
 
     let ret = '';
     switch (controlName) {

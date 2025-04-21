@@ -1,0 +1,9 @@
+@if (currentStep() > 0) {
+    <button type="button" (click)="onClickBack()">voltar</button>
+} 
+
+@if (currentStep() < 2) {
+    <button type="button" class="continue" (click)="onClickContinue()">próximo</button>
+} @else {
+    <button type="submit">enviar proposta</button>
+}
