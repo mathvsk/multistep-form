@@ -6,12 +6,11 @@
     <button 
         type="button" 
         class="btn-continue"
-        [class.disabled]="disabled()"
         [disabled]="disabled()" 
         (click)="onClickContinue()"
     >
         continuar
     </button>
 } @else {
-    <button type="submit">enviar proposta</button>
+    <button type="submit" [disabled]="disabled()">enviar proposta</button>
 }

@@ -29,8 +29,8 @@
 
         margin-left: auto;
         transition: background-color 0.3s ease-in-out;
-
-        &.disabled {
+        
+        &:disabled {
             cursor: not-allowed;
         }
 
