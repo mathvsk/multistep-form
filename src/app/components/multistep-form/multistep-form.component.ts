@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { StepsComponent } from "../steps/steps.component";
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormFieldComponent } from "../form-field/form-field.component";
@@ -35,6 +35,19 @@ export class MultistepFormComponent {
       updateOn: 'blur'
     }),
   });
+
+  get disabledButton() {
+    let ret = false;
+    if (this.currentStep === 0) {
+      ret = this.form.controls.name.invalid || this.form.controls.phone.invalid || this.form.controls.email.invalid;
+    } else if (this.currentStep === 1) {
+      ret = false;
+    } else if (this.currentStep === 2) {
+      ret = false;
+    }
+
+    return ret;
+  };
   
   get name() {
     return this.form.controls.name;

@@ -8,6 +8,7 @@ import { Component, input, model } from '@angular/core';
 })
 export class StepsButtonComponent {
   currentStep = model(0);
+  disabled = input(false);
 
   onClickBack() {
     this.currentStep.update((step) => step - 1);

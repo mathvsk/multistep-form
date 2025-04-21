@@ -3,7 +3,15 @@
 } 
 
 @if (currentStep() < 2) {
-    <button type="button" class="btn-continue" (click)="onClickContinue()">continuar</button>
+    <button 
+        type="button" 
+        class="btn-continue"
+        [class.disabled]="disabled()"
+        [disabled]="disabled()" 
+        (click)="onClickContinue()"
+    >
+        continuar
+    </button>
 } @else {
     <button type="submit">enviar proposta</button>
 }
