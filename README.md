@@ -1,59 +1,72 @@
 # MultistepForm
+![Angular](https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white)
+![Static Badge](https://img.shields.io/badge/MIT-maker?style=for-the-badge&label=License&labelColor=%23303030&color=%23808080)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.5.
+<img src=".github/projeto.gif" />
 
-## Development server
+## Sobre o projeto
 
-To start a local development server, run:
+Este projeto é uma aplicação Angular(v19) que implementa um formulário multi-etapas com validação de campos, estilização personalizada e uma experiência de usuário fluida. Abaixo estão os principais destaques do código e da arquitetura do projeto.
 
-```bash
-ng serve
-```
+## Funcionalidades
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### 1. **Formulário Multi-Etapas**
+O componente [`MultistepFormComponent`](src/app/components/multistep-form/multistep-form.component.ts) gerencia um formulário dividido em três etapas. Cada etapa possui validações específicas e mensagens de erro amigáveis para o usuário.
 
-## Code scaffolding
+- **Validações Personalizadas**: Cada campo do formulário possui validações específicas, como o número mínimo de caracteres para o telefone e validação de e-mail.
+- **Mensagens de Erro Dinâmicas**: O método `getErrorMessage` fornece mensagens de erro dinâmicas e localizadas para cada campo.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### 2. **Diretiva de Formatação de Telefone**
+A diretiva [`FormatPhoneDirective`](src/app/shared/directives/format-phone.directive.ts) formata automaticamente os números de telefone enquanto o usuário digita, garantindo uma entrada consistente e amigável.
 
-```bash
-ng generate component component-name
-```
+- **Reposicionamento do Cursor**: A diretiva mantém o cursor na posição correta mesmo após a formatação.
+- **Suporte a Diferentes Formatos**: Adapta-se dinamicamente ao comprimento do número de telefone.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### 3. **Componentes Reutilizáveis**
+O projeto utiliza componentes reutilizáveis para melhorar a modularidade e a manutenibilidade do código:
 
-```bash
-ng generate --help
-```
+- [`StepsComponent`](src/app/components/steps/steps.component.ts): Exibe visualmente o progresso do formulário com estados de etapa (ativa, concluída, etc.).
+- [`StepsButtonComponent`](src/app/components/steps-button/steps-button.component.ts): Gerencia os botões de navegação entre as etapas.
+- [`FormFieldComponent`](src/app/components/form-field/form-field.component.ts): Simplifica a criação de campos de formulário com suporte a validações e mensagens de erro.
 
-## Building
+### 4. **Estilização com SCSS**
+O projeto utiliza SCSS para criar estilos reutilizáveis e consistentes:
 
-To build the project run:
+- **Mixins Personalizados**: O arquivo [`variables.scss`](src/variables.scss) define mixins como `font-default` e `button`, que são amplamente utilizados para garantir consistência visual.
+- **Animações Suaves**: O botão de envio exibe uma animação de carregamento enquanto o formulário está sendo enviado.
 
-```bash
-ng build
-```
+### 5. **Experiência do Usuário**
+- **Feedback Visual**: Estados como "submetendo" são claramente indicados ao usuário.
+- **Mensagens de Sucesso**: Após o envio do formulário, o usuário recebe uma mensagem de confirmação.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Como Executar o Projeto
 
-## Running unit tests
+1. Instale as dependências:
+   ```bash
+   npm install
+   ```
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+2. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm start
+   ```
 
-```bash
-ng test
-```
+3. Acesse a aplicação em [http://localhost:4200](http://localhost:4200).
 
-## Running end-to-end tests
+## Como Executar o Projeto
 
-For end-to-end (e2e) testing, run:
+1. Instale as dependências:
+   ```bash
+   npm install
+   ```
 
-```bash
-ng e2e
-```
+2. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm start
+   ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+3. Acesse a aplicação em [http://localhost:4200](http://localhost:4200).
 
-## Additional Resources
+## Conclusão
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Este projeto demonstra como criar uma aplicação Angular moderna e bem estruturada, com foco em modularidade, reutilização de código e uma experiência de usuário aprimorada. A implementação de recursos como a diretiva de formatação de telefone e os componentes reutilizáveis são exemplos de boas práticas que podem ser aplicadas em outros projetos.
